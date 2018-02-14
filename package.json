@@ -1,18 +1,75 @@
 {
-  "name": "nx-logger",
   "version": "1.0.0",
-  "main": "build/log.js",
-  "types": "./types.d.ts",
-  "scripts": {
-    "build": "tsc ./lib/log.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "dist/log-debug.js",
+  "types": "dist/log-loggly.d.ts",
+  "author": "Tobias Kopelke <nox@raynode.de>",
+  "dependencies": {
+    "@types/loggly": "^1.1.30",
+    "loggly": "^1.1.1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {},
   "description": "",
+  "peerDependencies": {
+    "@raynode/nx-logger": ">=3.0.0"
+  },
   "devDependencies": {
-    "typescript": "^2.3.4"
+    "@types/faker": "^4.1.2",
+    "@types/node": "^9.4.1",
+    "commitizen": "^2.9.6",
+    "coveralls": "^3.0.0",
+    "cracks": "^3.1.2",
+    "cz-conventional-changelog": "^2.1.0",
+    "faker": "^4.1.0",
+    "jest": "^22.2.0",
+    "jest-cli": "^22.2.0",
+    "semantic-release": "^12.4.1",
+    "sinon": "^4.2.2",
+    "ts-jest": "^22.0.3",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.7.1"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "keywords": [
+    "logging",
+    "meta-logging"
+  ],
+  "license": "ISC",
+  "name": "@raynode/nx-logger-loggly",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raynode/nx-logger-debug"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "lint": "tslint 'lib/**/*.ts'",
+    "lint:fix": "tslint --fix 'lib/**/*.ts'",
+    "build": "rm -rf dist && tsc -p tsconfig.release.json",
+    "test": "npm run test:coverage",
+    "test-only": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "semantic-release": "semantic-release",
+    "upload": "npm publish --access public",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  },
+  "release": {
+    "analyzeCommits": {
+      "preset": "angular",
+      "releaseRules": [
+        {
+          "type": "chore",
+          "release": "patch"
+        }
+      ]
+    }
+  },
+  "optionalDependencies": {
+    "@raynode/nx-logger": "^2.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
