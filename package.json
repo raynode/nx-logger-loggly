@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "main": "dist/log-debug.js",
   "types": "dist/log-loggly.d.ts",
   "author": "Tobias Kopelke <nox@raynode.de>",
