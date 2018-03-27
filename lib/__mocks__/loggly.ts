@@ -7,5 +7,4 @@ const loggly = {
   setMockCreateClient,
 }
 
-
 module.exports = loggly
