@@ -58,7 +58,7 @@
   "types": "dist/log-loggly.d.ts",
   "version": "0.0.0-development",
   "optionalDependencies": {
-    "@raynode/nx-logger": "^4.0.0"
+    "@raynode/nx-logger": "^4.1.1"
   },
   "config": {
     "commitizen": {
