@@ -36,9 +36,12 @@ const logger = create('my-logger')
 
 ```
 
+The created logger will send the namespace as tags to loggly and the message will be the content of the log entry.
+This might be updated in the future to contain timestamps and more information, but at the current point in time (version 1) it is as simple as it gets.
+
 ```
 @TODO
-logger('Test') // equals to debug('my-logger')('Test') => my-logger: Test +5ms
+logger('Test') // will be send to loggly with tag:my-logger and content 'Test'
 ```
 
 
