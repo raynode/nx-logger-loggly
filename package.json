@@ -56,7 +56,7 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "types": "dist/log-loggly.d.ts",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "optionalDependencies": {
     "@raynode/nx-logger": "^5.0.0"
   },
