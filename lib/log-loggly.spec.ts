@@ -20,10 +20,10 @@ describe('createTransport', () => {
   })
 
   it('should call the returned transport if setup as a transport', () => {
-    let last = null
+    let last: any[] = null
     const msg = faker.random.word()
     const namespace = faker.random.words(10).split(' ')
-    setMockCreateClient(() => ({ log: (...args) => last = args }))
+    setMockCreateClient(() => ({ log: (...args: any[]) => last = args }))
     const transport = createTransport({} as any)
     const log = create({ namespace, transport })
     log(msg)
@@ -36,7 +36,7 @@ describe('createTransport', () => {
     let called = false
     const namespace = faker.random.words(10).split(' ')
     const mockMsg = faker.random.words()
-    const mockClient = { log: (msg: string, ns?: string[]) => {
+    const mockClient: any = { log: (msg: string, ns?: string[]) => {
       expect(msg).toBe(mockMsg)
       expect(ns).toEqual(namespace)
       called = true
